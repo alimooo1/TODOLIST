@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(252, 234, 234);
+}
+
+.container {
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 50px 0;
+}
+
+.input-box {
+    width: 100%;
+    min-height: 50px;
+    border: none;
+    border-radius: 10px;
+    direction: rtl;
+    padding-right: 15px;
+    font-size: 1.2em;
+    font-family: calibri;
+    box-shadow: 0 4px 8px 0 rgba(255, 88, 88, 0.2), 0 6px 20px 0 rgba(230, 34, 34, 0.19);
+    margin-bottom: 80px;
+    color: rgb(235, 71, 71);
+}
+
+.input-box:focus {
+    outline: none;
+}
+
+.input-box::placeholder {
+    color: rgba(235, 71, 71, 0.51);
+}
+
+.toDos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    /* background-color: aqua; */
+    width: 100%;
+    height: 100%;
+    direction: rtl;
+}
+
+.toDoItem {
+    width: 100%;
+    height: 70px;
+    background-color: rgb(235, 71, 71);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: "calibri";
+    color: rgb(255, 231, 231);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 1s;
+    overflow: hidden;
+}
+
+.toDoItem:hover{
+    cursor: pointer;
+}
+
+.icons {
+    width: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons i {
+    font-size: 1.2rem;
+}
+
+.addToDo {
+    position: fixed;
+    left: 35px;
+    bottom: 35px;
+    transition: all 0.5s;
+}
+
+.addToDo i {
+    font-size: 55px;
+    color: rgb(235, 71, 71);
+}
+
+.addToDo i:hover {
+    cursor: pointer;
+}
+
+.clicked-toDo {
+    transform: rotate(-45deg);
+}
+
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    width: 60%;
+    min-height: 400px;
+    background-color: bisque;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    position: relative;
+}
+
+.modal-content h3 {
+    color: rgb(235, 71, 71);
+    font-family: "calibri";
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.modal-content .input-box{
+    width: 70%;
+    margin-bottom: 40px;
+}
+
+.modal-content .buttons {
+    width: 70%;
+}
+
+.button {
+    width: 100%;
+    min-height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(206, 33, 33);
+    color: rgb(255, 231, 231);
+    font-size: 20px;
+    font-family: "calibri";
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: rgb(249, 52, 52);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal i {
+    font-size: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: rgb(206, 33, 33);
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+.un-hide {
+    display: flex;
+}
+
+.done-todo {
+    background-color: rgb(85 231 85);
+}
+
+.add-animation {
+    animation: addItem 1.4s;
+}
+
+@keyframes addItem {
+    0% {width: 20%;}
+    100% {width: 100%;}
+}

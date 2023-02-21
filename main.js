@@ -1,4 +1,4 @@
-const addButton = document.querySelector(".addToDo");
+const addButton = document.querySelector(".addToDo i");
 const modal = document.querySelector(".modal");
 const closeModal = document.querySelector(".fa-circle-xmark");
 const confirm = document.querySelector(".button");
@@ -37,20 +37,25 @@ const showItems = (myArray) => {
 };
 
 const addNewToDoHandler = () => {
-  const toDo = {};
-  toDo.name = toDoName.value;
-  toDo.done = false;
-  toDo.id = dataBase.length;
-  dataBase.push(toDo);
-  localStorage.setItem("data", JSON.stringify(dataBase));
-  toDoList.innerHTML = "";
-  showItems(dataBase);
-  modal.classList.toggle("un-hide");
-  addButton.classList.remove("clicked-toDo");
-  toDoName.value = "";
-  const items = document.querySelectorAll(".toDoItem");
-  items[items.length - 1].classList.add("add-animation");
-};
+  if (toDoName.value !== "") {
+    const toDo = {};
+    toDo.name = toDoName.value;
+    toDo.done = false;
+    toDo.id = dataBase.length;
+    dataBase.push(toDo);
+    localStorage.setItem("data", JSON.stringify(dataBase));
+    toDoList.innerHTML = "";
+    showItems(dataBase);
+    modal.classList.toggle("un-hide");
+    addButton.classList.remove("clicked-toDo");
+    toDoName.value = "";
+    const items = document.querySelectorAll(".toDoItem");
+    items[items.length - 1].classList.add("add-animation");
+  } else {
+    alert("حالا خودتم نمی خوای حداقل محض رضای خدا یه چیزی بنویس اول بعد add کن")
+  }
+  } 
+
 
 const deleteHandler = (id) => {
   dataBase = dataBase.filter((data) => {
@@ -103,4 +108,5 @@ modal.addEventListener("keyup", (event) => {
 confirm.addEventListener("click", addNewToDoHandler);
 searchBox.addEventListener("keyup", searchHandler);
 
+document.querySelector("body").style.minHeight = window.innerHeight + "px"
 showItems(dataBase);
